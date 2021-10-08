@@ -27,14 +27,15 @@ class Bici{
 	}
 	
 	method carga(){
-		return accesorios.sum({cosa => cosa.peso()})
+		return accesorios.sum({cosa => cosa.carga()})
 	}
 	
 	method peso(){
-		return (rodado / 2) + self.carga()
+		return (rodado / 2) + accesorios.sum({cosa => cosa.peso()})
 	}
 	
 	method tieneLuz(){
 		return accesorios.any({cosa => cosa.esLuminoso()})
 	}
+	
 }
