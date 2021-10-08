@@ -35,4 +35,8 @@ class Deposito{
 			bici => bici.carga() > kg
 		})
 	}
+
+	method sonCompanieras(bici){
+	return bicis.filter(({cosa => cosa.marca() == bici.marca() and (cosa.largo() - bici.largo()).abs() < 10 and bici != cosa }))
+	}
 }
