@@ -10,13 +10,13 @@ class Farolito {
 
 
 class Canasto{
-	var property volumen
-	const peso = volumen / 10
-	const carga = volumen * 2
+	var property volumen = 0
+	var carga = 0
+	var peso = 0
 	const esLuminoso = false
 	
-	method peso(){return peso}
-	method carga(){return carga}
+	method peso(){ peso = volumen / 10 return peso}
+	method carga(){carga = volumen * 2 return carga}
 	method esLuminoso(){return esLuminoso}
 }
 
@@ -25,11 +25,11 @@ class MorralDeBici{
 	var property largo = 0
 	var property tieneOjo = false
 	const peso = 1.2
-	const carga = largo / 3
+	var carga = 0
 	var esLuminoso = false
 	
 	method peso(){return peso}
-	method carga(){return carga}
+	method carga(){carga = largo / 3 return carga}
 	method esLuminoso(){
 		if(tieneOjo){
 			esLuminoso = true

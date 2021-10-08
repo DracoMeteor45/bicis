@@ -2,11 +2,11 @@ import bicis.*
 import accesorios.*
 test "tres ejemplos de bicis"{
 
-
+	// Primera Bici
 	const bici1 = new Bici()
 	const farolito1 = new Farolito()
 	
-	//Una bici rodado 28, de 150 cm de largo, marca Olmo, como único accesorio tiene un farolito.
+	//bici 1 tiene rodado 28, de 150 cm de largo, marca Olmo, como único accesorio tiene un farolito.
 	bici1.rodado(28)
 	bici1.largo(150)
 	bici1.marca("Olmo")
@@ -19,5 +19,34 @@ test "tres ejemplos de bicis"{
 	assert.equals(14.5, bici1.peso())
 	assert.that(bici1.tieneLuz())
 	assert.equals(1, bici1.cantAccesoriosLivianos())
+	
+	
+	// Segunda Bici
+	
+	// una bici rodado 26, largo 110 cm, marca "Legnano", accesorios:
+	// un farolito, un canasto con volunen 8, un morral de largo 21 con ojo de gato.
+	const bici2 = new Bici()
+	const farolito2 = new Farolito()
+	const canasto2 = new Canasto()
+	const morral2 = new MorralDeBici()
+	
+	bici2.rodado(26)
+	bici2.largo(110)
+	bici2.marca("Legnano")
+	canasto2.volumen(8)
+	morral2.largo(21)
+	morral2.tieneOjo(true)
+	bici2.addAccesorios([farolito2 , canasto2 , morral2])
+	//Para esta bici tenemos: altura 80, velocidad de crucero 28, peso 15.5 (13 de la bici, 0.5 del farolito,
+	// 0.8 del canasto, 1.2 del morral), carga 23 (16 del canasto más 7 del morral), 
+	//tiene luz (porque el morral tiene ojo de gato), 2 accesorios livianos (el farolito y el canasto).
+	
+	assert.equals(80, bici2.altura())
+	assert.equals(28, bici2.velocidad())
+	assert.equals(23, bici2.carga())
+	assert.equals(15.5, bici2.peso())
+	assert.that(bici2.tieneLuz())
+	assert.equals(2, bici2.cantAccesoriosLivianos())
+	
 	
 }
