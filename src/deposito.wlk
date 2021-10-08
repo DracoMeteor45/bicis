@@ -37,6 +37,6 @@ class Deposito{
 	}
 
 	method sonCompanieras(bici){
-	return bicis.filter(({cosa => cosa.marca() == bici.marca() and (cosa.largo() - bici.largo()).abs() < 10 and bici != cosa }))
+	return bicis.filter(({ (cosa => cosa.marca() == bici.marca()) and ((cosa.largo() - bici.largo()).abs() < 10) and (bici != cosa) }))
 	}
 }
