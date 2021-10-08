@@ -1,0 +1,65 @@
+import bicis.*
+import accesorios.*
+import deposito.*
+
+describe "Tres bicis en deposito"{
+
+    method initialize() {
+        //Se asigna un depósito.
+        const depositoNacho = new Deposito()
+
+	    // Primera Bici
+        const bici1 = new Bici()
+        const farolito1 = new Farolito()
+        
+        //bici 1 tiene rodado 28, de 150 cm de largo, marca Olmo, como único accesorio tiene un farolito.
+        bici1.rodado(28)
+        bici1.largo(150)
+        bici1.marca("Olmo")
+        bici1.addAccesorios([farolito1])
+
+        
+        
+        // Segunda Bici
+        
+        // una bici rodado 26, largo 110 cm, marca "Legnano", accesorios:
+        // un farolito, un canasto con volunen 8, un morral de largo 21 con ojo de gato.
+        const bici2 = new Bici()
+        const farolito2 = new Farolito()
+        const canasto2 = new Canasto()
+        const morral2 = new MorralDeBici()
+        
+        bici2.rodado(26)
+        bici2.largo(110)
+        bici2.marca("Legnano")
+        canasto2.volumen(8)
+        morral2.largo(21)
+        morral2.tieneOjo(true)
+        bici2.addAccesorios([farolito2 , canasto2 , morral2])
+        
+        
+        // Tercera Bici
+        
+        //una bici rodado 20, largo 90 cm, marca "Legnano", como único accesorio un morral de largo 6 y sin ojo de gato.
+        
+        const bici3 = new Bici()
+        const morral3 = new MorralDeBici()
+        bici3.rodado(20)
+        bici3.largo(90)
+        bici3.marca("Legnano")
+        morral3.tieneOjo(false)
+        morral3.largo(6)
+        
+        bici3.addAccesorios([morral3])
+        
+        //Se meten las bicicletas en el depósito.
+        depositoNacho.depositarBici(bici1)
+        depositoNacho.depositarBici(bici2)
+        depositoNacho.depositarBici(bici3)
+    }
+    
+    test "bicis rapidas"{
+        assert.equals([bici1, bici2], depositoNacho.bicisRapidas())
+    }
+
+}
