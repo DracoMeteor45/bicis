@@ -49,4 +49,28 @@ test "tres ejemplos de bicis"{
 	assert.equals(2, bici2.cantAccesoriosLivianos())
 	
 	
+	// Tercera Bici
+	
+	//una bici rodado 20, largo 90 cm, marca "Legnano", como único accesorio un morral de largo 6 y sin ojo de gato.
+	
+	const bici3 = new Bici()
+	const morral3 = new MorralDeBici()
+	bici3.rodado(20)
+	bici3.largo(90)
+	bici3.marca("Legnano")
+	morral3.tieneOjo(false)
+	morral3.largo(6)
+	
+	bici3.addAccesorios([morral3])
+	//Para esta bici tenemos: altura 65, velocidad de crucero 22,
+	// carga 2, peso 11.2 (10 de la bici + 1.2 del morral), no tiene luz, no tiene ningún accesorio liviano.
+	
+	assert.equals(65, bici3.altura())
+	assert.equals(22, bici3.velocidad())
+	assert.equals(2, bici3.carga())
+	assert.equals(11.2, bici3.peso())
+	assert.notThat(bici3.tieneLuz())
+	assert.equals(0, bici3.cantAccesoriosLivianos())
+	
+	
 }
