@@ -2,14 +2,37 @@ import bicis.*
 import accesorios.*
 
 class Deposito{
-	var bicis = []
+	const bicis = []
 	
+	method depositarBici(bicicleta){
+		bicis.add(bicicleta)
+	}
+
 	method bicisRapidas(){
 		return bicis.filter({
-			b => b.velocidad > 25
+			b => b.velocidad() > 25
 		})
 	}
 
-	
-}
+	method bicisMarcas(){
+		const marcas = []
+		bicis.forEach({
+			bici => if(not(marcas.contains(bici.marca()))){
+				marcas.add(bici.marca())
+			}
+		})
+		return marcas
+	}
 
+	method esNocturno(){
+		return bicis.all({
+			bici => bici.tieneLuz()
+		})
+	}
+
+	method puedeLlevarCarga(kg){
+		bicis.any({
+			bici => bici.carga() > kg
+		})
+	}
+}
