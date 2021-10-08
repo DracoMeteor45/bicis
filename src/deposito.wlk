@@ -2,11 +2,15 @@ import bicis.*
 import accesorios.*
 
 class Deposito{
-	var bicis = []
+	const bicis = []
 	
+	method depositarBici(bicicleta){
+		bicis.add(bicicleta)
+	}
+
 	method bicisRapidas(){
 		return bicis.filter({
-			b => b.velocidad > 25
+			b => b.velocidad() > 25
 		})
 	}
 
