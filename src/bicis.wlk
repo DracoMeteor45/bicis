@@ -1,3 +1,5 @@
+import accesorios.*
+
 class Bici{
 	var property rodado 
 	var property marca 
