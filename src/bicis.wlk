@@ -38,4 +38,8 @@ class Bici{
 		return accesorios.any({cosa => cosa.esLuminoso()})
 	}
 	
+	method cantAccesoriosLivianos(){
+		return accesorios.count({cosa => cosa.peso() < 1})
+	}
+	
 }

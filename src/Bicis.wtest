@@ -1,0 +1,23 @@
+import bicis.*
+import accesorios.*
+test "tres ejemplos de bicis"{
+
+
+	const bici1 = new Bici()
+	const farolito1 = new Farolito()
+	
+	//Una bici rodado 28, de 150 cm de largo, marca Olmo, como único accesorio tiene un farolito.
+	bici1.rodado(28)
+	bici1.largo(150)
+	bici1.marca("Olmo")
+	bici1.addAccesorios([farolito1])
+	//Para esta bici tenemos: altura 85, velocidad de crucero 34, carga 0, peso 14.5 (14 de la bici + 0.5 del farolito),
+	// tiene luz (por el farolito), tiene 1 accesorio liviano.
+	assert.equals(85, bici1.altura())
+	assert.equals(34, bici1.velocidad())
+	assert.equals(0, bici1.carga())
+	assert.equals(14.5, bici1.peso())
+	assert.that(bici1.tieneLuz())
+	assert.equals(1, bici1.cantAccesoriosLivianos())
+	
+}
