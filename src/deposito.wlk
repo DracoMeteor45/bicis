@@ -14,6 +14,25 @@ class Deposito{
 		})
 	}
 
-	
-	
+	method bicisMarcas(){
+		const marcas = []
+		bicis.forEach({
+			bici => if(not(marcas.contains(bici.marca()))){
+				marcas.add(bici.marca())
+			}
+		})
+		return marcas
+	}
+
+	method esNocturno(){
+		return bicis.all({
+			bici => bici.tieneLuz()
+		})
+	}
+
+	method puedeLlevarCarga(kg){
+		bicis.any({
+			bici => bici.carga() > kg
+		})
+	}
 }
