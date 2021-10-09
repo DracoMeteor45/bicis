@@ -4,12 +4,17 @@ import deposito.*
 
 describe "Tres bicis en deposito"{
 
+	const depositoNacho = new Deposito()
+    const bici1 = new Bici()
+    const bici2 = new Bici()
+    const bici3 = new Bici()	
+	
     method initialize() {
         //Se asigna un depósito.
-        const depositoNacho = new Deposito()
+        
 
 	    // Primera Bici
-        const bici1 = new Bici()
+
         const farolito1 = new Farolito()
         
         //bici 1 tiene rodado 28, de 150 cm de largo, marca Olmo, como único accesorio tiene un farolito.
@@ -24,7 +29,6 @@ describe "Tres bicis en deposito"{
         
         // una bici rodado 26, largo 110 cm, marca "Legnano", accesorios:
         // un farolito, un canasto con volunen 8, un morral de largo 21 con ojo de gato.
-        const bici2 = new Bici()
         const farolito2 = new Farolito()
         const canasto2 = new Canasto()
         const morral2 = new MorralDeBici()
@@ -42,7 +46,6 @@ describe "Tres bicis en deposito"{
         
         //una bici rodado 20, largo 90 cm, marca "Legnano", como único accesorio un morral de largo 6 y sin ojo de gato.
         
-        const bici3 = new Bici()
         const morral3 = new MorralDeBici()
         bici3.rodado(20)
         bici3.largo(90)
@@ -58,8 +61,19 @@ describe "Tres bicis en deposito"{
         depositoNacho.depositarBici(bici3)
     }
     
-    test "bicis rapidas"{
+    test "bicisRapidas"{
         assert.equals([bici1, bici2], depositoNacho.bicisRapidas())
     }
-
+    
+    test "marcas"{
+    	assert.equals(["Olmo", "Legnano"], depositoNacho.bicisMarcas())
+    }
+    
+    test "tieneLuz"{
+		assert.notThat(depositoNacho.esNocturno())
+	}
+	
+	test "cargaDeBicicletas"{
+		assert.that(depositoNacho.puedeLlevarCarga(10))
+	}
 }

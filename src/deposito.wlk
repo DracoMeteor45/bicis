@@ -31,11 +31,12 @@ class Deposito{
 	}
 
 	method puedeLlevarCarga(kg){
-		bicis.any({
+		return bicis.any({
 			bici => bici.carga() > kg
 		})
 	}
-
+	
+	
 	method sonCompanieras(bici){ // punto 4
 	return bicis.filter(({cosa => cosa.marca() == bici.marca() and (cosa.largo() - bici.largo()).abs() < 10 and bici != cosa }))
 	}
