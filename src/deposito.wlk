@@ -42,6 +42,9 @@ class Deposito{
 		return bicis.max({cosa => cosa.velocidad()}).marca()
 	}
 	
+	method bicisLargas(){
+		return bicis.filter({cosa => cosa.largo() > 170})
+	}
 	
 
 	// punto 4
