@@ -41,9 +41,9 @@ class MorralDeBici{
 
 /*
 Deberia crearse una nueva clase que tenga los siguientes atributos y metodos: 
-* CARGA
-* PESO
-* esLUMINOSO
+* carga
+* peso
+* esLuminoso
 * 
 * Se tiene que definir una clase/objeto y respetar las mensajes para que conserve la integridad
 * del contrato y pueda mantener el polimorfismo.

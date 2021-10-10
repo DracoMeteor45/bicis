@@ -36,8 +36,16 @@ class Deposito{
 		})
 	}
 	
+	//punto 3
+
+	method marcaBiciMasRapida(){
+		return bicis.max({cosa => cosa.velocidad()}).marca()
+	}
 	
-	method sonCompanieras(bici){ // punto 4
-	return bicis.filter(({cosa => cosa.marca() == bici.marca() and (cosa.largo() - bici.largo()).abs() < 10 and bici != cosa }))
+	
+
+	// punto 4
+	method sonCompanieras(bici){ 
+	return bicis.filter(( {cosa => (cosa.marca() == bici.marca()) and (cosa.largo() - bici.largo()).abs() < 10 and (bici != cosa) }))
 	}
 }
